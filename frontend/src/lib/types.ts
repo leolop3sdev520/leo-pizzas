@@ -6,6 +6,15 @@ export interface User {
   createdAt: string;
 }
 
+// ✅ Adicionado para resolver o erro do build
+export interface AuthResponse {
+  id: string;
+  name: string;
+  email: string;
+  role: "ADMIN" | "STAFF";
+  token: string;
+}
+
 export interface Category {
   id: string;
   name: string;

@@ -4,11 +4,6 @@ import { useEffect, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { RefreshCw } from "lucide-react";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"; // Opcional, se tiver tooltip
 
 export function RefreshOrdersButton() {
   const router = useRouter();
@@ -25,7 +20,7 @@ export function RefreshOrdersButton() {
       startTransition(() => {
         router.refresh();
       });
-    }, 30000); // 30 segundos
+    }, 30000);
 
     return () => clearInterval(interval);
   }, [router]);
@@ -36,8 +31,8 @@ export function RefreshOrdersButton() {
       disabled={isPending}
       variant="outline"
       size="icon"
-      className="h-10 w-10 border-app-border bg-transparent text-app-text/60 hover:bg-app-card hover:text-app-text transition-colors rounded-full"
       title="Atualizar pedidos agora"
+      className="h-10 w-10 border-app-border bg-transparent text-app-text/60 hover:bg-app-card hover:text-app-text transition-colors rounded-full"
     >
       <RefreshCw
         className={`w-4 h-4 ${isPending ? "animate-spin text-brand-primary" : ""}`}
