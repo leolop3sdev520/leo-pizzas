@@ -6,7 +6,12 @@ import { router } from "./routes.js";
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "https://leo-pizzas.vercel.app"],
+    credentials: true,
+  }),
+);
 app.use(router);
 
 app.use((error: Error, _req: Request, res: Response, _next: NextFunction) => {
