@@ -1,12 +1,14 @@
+export const instant = false; // ✅ AQUI ESTÁ A CORREÇÃO
+
 import { RegisterForm } from "@/components/forms/register-form";
-import { redirect } from "next/dist/client/components/navigation";
+import { redirect } from "next/navigation";
 import { getUser } from "@/lib/auth";
 
 export default async function Register() {
   const user = await getUser();
 
+  // Se o usuário já estiver logado, redireciona para o dashboard
   if (user) {
-    // Se o usuário já estiver logado, redireciona para o dashboard
     redirect("/dashboard");
   }
 
